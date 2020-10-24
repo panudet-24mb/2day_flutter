@@ -81,7 +81,7 @@ class _LoginState extends State<Login> {
                                 padding: EdgeInsets.all(10),
                                 child: ClipOval(
                                   child: Material(
-                                    color: Colors.blue, // button color
+                                    color: Color(0xff0b4e82), // button color
                                     child: InkWell(
                                       splashColor: Colors.red, // inkwell color
                                       child: SizedBox(
