@@ -23,7 +23,6 @@ class InputWidget extends StatelessWidget {
             padding: EdgeInsets.only(left: 40, right: 20, top: 10, bottom: 10),
             child: TextField(
               keyboardType: TextInputType.number,
-
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: "1XX0501XX064X",

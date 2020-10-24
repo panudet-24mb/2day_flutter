@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Background extends StatelessWidget {
   @override
@@ -12,11 +13,13 @@ class Background extends StatelessWidget {
           new Stack(
             alignment: Alignment.bottomCenter,
             children: <Widget>[
-
-              Image.asset(
-                'assets/images/splash_screen.png',
-                width: MediaQuery.of(context).size.width / 1.3,
+              Lottie.asset('assets/animations/login_animation.json' ,
+                width: MediaQuery.of(context).size.width / 1,
               ),
+              // Image.asset(
+              //   'assets/images/splash_screen.png',
+              //   width: MediaQuery.of(context).size.width / 1.3,
+              // ),
               WavyHeader(),
             ],
           ),
