@@ -7,8 +7,7 @@ class Login extends StatelessWidget {
     return Column(
       children: <Widget>[
         Padding(
-          padding:
-              EdgeInsets.only(top: MediaQuery.of(context).size.height / 2),
+          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2),
         ),
         Column(
           children: <Widget>[
@@ -26,7 +25,7 @@ class Login extends StatelessWidget {
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: <Widget>[
-                    InputWidget(30.0, 0.0),
+                    InputWidget(),
                     Padding(
                         padding: EdgeInsets.only(right: 50),
                         child: Row(
@@ -37,22 +36,25 @@ class Login extends StatelessWidget {
                               child: Text(
                                 'กรุณากรอกบัตรประชาชนเพื่อเริ่มต้นใช้งาน...',
                                 textAlign: TextAlign.end,
-                                style: TextStyle(color: Color(0xFFA0A0A0),
-                                fontSize: 12),
+                                style: TextStyle(
+                                    color: Color(0xFFA0A0A0), fontSize: 12),
                               ),
                             )),
                             Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: ShapeDecoration(
-                                shape: CircleBorder(),
-                                color: Colors.blue
-                              ),
-                              child: ImageIcon(
-                                AssetImage("assets/images/ic_forward.png"),
-                                size: 40,
-                                color: Colors.white,
-                              ),
-                            ),
+                                padding: EdgeInsets.all(10),
+                                child: ClipOval(
+                                  child: Material(
+                                    color: Colors.blue, // button color
+                                    child: InkWell(
+                                      splashColor: Colors.red, // inkwell color
+                                      child: SizedBox(
+                                          width: 56,
+                                          height: 56,
+                                          child: Icon(Icons.arrow_forward_ios_outlined, color:Colors.white )),
+                                      onTap: () {},
+                                    ),
+                                  ),
+                                )),
                           ],
                         ))
                   ],
@@ -68,4 +70,3 @@ class Login extends StatelessWidget {
     );
   }
 }
-

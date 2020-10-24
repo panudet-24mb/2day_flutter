@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:app_2day/views/ui/main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../ui/login/intro_page.dart';
+import '../ui/intro_page.dart';
 import '../ui/login/main_login.dart';
 class IntroState extends StatefulWidget {
   @override

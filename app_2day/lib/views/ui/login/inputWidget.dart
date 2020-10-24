@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:app_2day/models/login.dart';
 
-class InputWidget extends StatelessWidget {
-  final double topRight;
-  final double bottomRight;
+class InputWidget extends StatefulWidget{
+  @override
+  _InputWidgetState  createState() => _InputWidgetState();
+}
 
-  InputWidget(this.topRight, this.bottomRight);
+class _InputWidgetState extends State<InputWidget> {
+  final UserLogin user = new UserLogin();
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +21,17 @@ class InputWidget extends StatelessWidget {
           color: Colors.white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(bottomRight),
-                  topRight: Radius.circular(topRight))),
+                  bottomRight: Radius.circular(30.0),
+                  topRight: Radius.circular(0.0))),
           child: Padding(
             padding: EdgeInsets.only(left: 40, right: 20, top: 10, bottom: 10),
             child: TextField(
+              onChanged: (text) {
+                setState((){
+                  this.user.user_citizenid = text;
+                  print(this.user.user_citizenid);
+                });
+              },
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   border: InputBorder.none,
