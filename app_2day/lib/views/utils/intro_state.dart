@@ -11,12 +11,12 @@ class IntroState extends StatefulWidget {
 }
 
 class _IntroState extends State<IntroState> {
+
   Future checkFirstSeen() async {
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? false);
     String _logged = (prefs.getString('jwt'));
-    print(_logged);
-
     if (_seen == false) {
       prefs.setBool('seen', true);
       Navigator.of(context).pushReplacement(
