@@ -44,12 +44,13 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
+            icon: Icon(Icons.home_outlined , color: Color(0xff0b4e82),),
+            title: Text('Home',style: TextStyle(color: Color(0xff0b4e82))),
             backgroundColor: Color(0xff0b4e82),
           ),
           BottomNavigationBarItem(
@@ -63,7 +64,7 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: Color(0xff0b4e82),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.notifications_none_outlined),
             title: Text('Notifications'),
             backgroundColor: Color(0xff0b4e82),
           ),
