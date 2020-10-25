@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import '../main_page.dart';
-
+import '../../../main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:app_2day/views/ui/main_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -14,6 +17,41 @@ class _LoginState extends State<Login> {
     idController.dispose();
     super.dispose();
   }
+
+  Future<String> attemptLogIn(String citizen_id) async {
+    var url = "$SERVER_IP/api/v1/sign-in";
+    var body = json.encode({"citizen_id": citizen_id});
+    Map<String, String> headers = {
+      'Content-type': 'application/json',
+      'Accept': 'application/json',
+    };
+
+    final response = await http.post(url, body: body, headers: headers);
+    final responseJson = json.decode(response.body);
+    print(response);
+    if (response.statusCode != 200) {
+      displayDialog(context, "พบข้อผิดพลาด", responseJson["payload"]);
+      return null;
+    }
+    if (response.statusCode == 200) {
+      return responseJson["token"];
+    }
+  }
+
+  void displayDialog(context, title, text) => showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(title),
+          content: Text(text),
+          actions: [
+            FlatButton(
+              onPressed: () => Navigator.pop(context, false),
+              // passing false
+              child: Text('Ok'),
+            ),
+          ],
+        ),
+      );
 
   Widget build(BuildContext context) {
     return Column(
@@ -91,12 +129,33 @@ class _LoginState extends State<Login> {
                                           child: Icon(
                                               Icons.arrow_forward_ios_outlined,
                                               color: Colors.white)),
-                                      onTap: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return MainPage();
-                                        }));
+                                      onTap: () async {
+                                        if (idController.text.length < 13 ||
+                                            idController.text.length >= 14) {
+                                          displayDialog(
+                                              context,
+                                              "รหัสบัตรประชาชนไม่ถูกต้อง",
+                                              "กรุณากรอกบัตรประชาชนให้ครบ 13 หลัก");
+                                        }
+                                        if (idController.text.length == 13) {
+                                          var jwt = await attemptLogIn(
+                                              idController.text);
+                                          if (jwt != null) {
+                                            final prefs = await SharedPreferences.getInstance();
+                                            prefs.setString('jwt', jwt);
+                                            Navigator.push(context,
+                                                MaterialPageRoute(
+                                                    builder: (context) {
+                                              return MainPage();
+                                            }));
+                                          }
+                                        }
+
+                                        // Navigator.push(context,
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) {
+                                        //   return MainPage();
+                                        // }));
                                       },
                                     ),
                                   ),
