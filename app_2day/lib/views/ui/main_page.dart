@@ -22,6 +22,7 @@ final PageStorageBucket bucket = PageStorageBucket();
 Widget currentScreen = HomePage(); // Our first view in viewport
 
 class _MainPageState extends State<MainPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +30,11 @@ class _MainPageState extends State<MainPage> {
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.location_on),
-        backgroundColor: Colors.red ,
-        onPressed: () {},
+      floatingActionButton: IconButton(
+          icon : Icon(Icons.location_on , size: 50 , color: Color(0xff90191C),),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
         notchMargin: 10,
         child: Container(
           height: 60,

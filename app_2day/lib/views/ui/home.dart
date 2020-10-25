@@ -18,11 +18,12 @@ class _HomePageState extends State<HomePage> {
                 fit: BoxFit.contain,
                 height: 32,
                 alignment: FractionalOffset.center),
+            backgroundColor: Colors.white,
             actions: <Widget>[
               IconButton(
                 icon: Icon(
                   Icons.chat_bubble,
-                  color: Colors.white,
+                  color: Color(0xff0b4e82),
                 ),
                 onPressed: () {
                   // do something
