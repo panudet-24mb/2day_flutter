@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
-                          'คน ควยใหญ่',
+                          'JWT',
                           style: Theme.of(context)
                               .textTheme
                               .headline
