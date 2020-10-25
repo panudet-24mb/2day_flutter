@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main_page.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -69,14 +70,14 @@ class _LoginState extends State<Login> {
                           children: <Widget>[
                             Expanded(
                                 child: Padding(
-                                  padding: EdgeInsets.only(top: 40),
-                                  child: Text(
-                                    'กรุณากรอกบัตรประชาชนเพื่อเริ่มต้นใช้งาน...',
-                                    textAlign: TextAlign.end,
-                                    style: TextStyle(
-                                        color: Color(0xFFA0A0A0), fontSize: 12),
-                                  ),
-                                )),
+                              padding: EdgeInsets.only(top: 40),
+                              child: Text(
+                                'กรุณากรอกบัตรประชาชนเพื่อเริ่มต้นใช้งาน...',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    color: Color(0xFFA0A0A0), fontSize: 12),
+                              ),
+                            )),
                             Container(
                                 padding: EdgeInsets.all(10),
                                 child: ClipOval(
@@ -91,8 +92,11 @@ class _LoginState extends State<Login> {
                                               Icons.arrow_forward_ios_outlined,
                                               color: Colors.white)),
                                       onTap: () {
-                                        var id = idController.text;
-                                        print(id);
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return MainPage();
+                                        }));
                                       },
                                     ),
                                   ),
