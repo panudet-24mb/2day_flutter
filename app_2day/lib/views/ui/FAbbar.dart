@@ -1,27 +1,16 @@
 import 'package:flutter/material.dart';
-import 'navigatebar.dart';
+import 'main_page.dart';
 import 'history.dart';
 import 'notifications.dart';
 import 'menu.dart';
-import 'home.dart';
 
-
-class MainPage extends StatefulWidget {
+class BottomFABbar extends StatefulWidget {
   @override
-  _MainPageState createState() => _MainPageState();
+  _BottomFABbarState createState() => _BottomFABbarState();
 }
 
-int currentTab = 0 ;
-final List<Widget> screens = [
-  HomePage(),
-  HistoryPage(),
-  NotificationsPage(),
-  MenuPage(),
-]; // to store nested tabs
-final PageStorageBucket bucket = PageStorageBucket();
-Widget currentScreen = HomePage(); // Our first view in viewport
+class _BottomFABbarState extends State<BottomFABbar> {
 
-class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +39,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = HomePage(); // if user taps on this dashboard tab will be active
+                        //currentScreen = Dashboard(); // if user taps on this dashboard tab will be active
                         currentTab = 0;
                       });
                     },
@@ -74,7 +63,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = HistoryPage(); // if user taps on this dashboard tab will be active
+                        //currentScreen = Chat(); // if user taps on this dashboard tab will be active
                         currentTab = 1;
                       });
                     },
@@ -106,7 +95,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = NotificationsPage(); // if user taps on this dashboard tab will be active
+                        //currentScreen = Profile(); // if user taps on this dashboard tab will be active
                         currentTab = 2;
                       });
                     },
@@ -130,7 +119,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = MenuPage(); // if user taps on this dashboard tab will be active
+                        //currentScreen = Settings(); // if user taps on this dashboard tab will be active
                         currentTab = 3;
                       });
                     },
