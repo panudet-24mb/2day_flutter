@@ -4,6 +4,7 @@ import 'history.dart';
 import 'notifications.dart';
 import 'menu.dart';
 import 'home.dart';
+import '../ui/checkin/mainpage.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -40,7 +41,11 @@ class _MainPageState extends State<MainPage> {
         highlightColor: Colors.transparent,
 
         //backgroundColor: Colors.red,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushReplacement(
+              new MaterialPageRoute(builder: (context) => new CheckinPage()));
+
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(

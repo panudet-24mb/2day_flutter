@@ -24,7 +24,7 @@ class _IntroState extends State<IntroState> {
     } else {
       if (_logged == null) {
         Navigator.of(context).pushReplacement(
-            new MaterialPageRoute(builder: (context) => new LoginPage()));
+            new MaterialPageRoute(builder: (context) => new MainPage()));
         }
       if (_logged != null) {
         Navigator.of(context).pushReplacement(
