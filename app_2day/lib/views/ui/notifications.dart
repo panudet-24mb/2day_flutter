@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'navigatebar.dart';
-import 'FAbbar.dart';
 
 class NotificationsPage extends StatefulWidget {
   @override

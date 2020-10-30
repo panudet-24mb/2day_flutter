@@ -32,10 +32,11 @@ String ntptime = ('time');
 
 class _MyHomePageState extends State<MyHomePage> {
   //
+
+  //
   Future<void> _gotoDefault() async {
     //map part
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+    Position position = await Geolocator.getLastKnownPosition();
     double lat = position.latitude.toDouble();
     double long = position.longitude.toDouble();
     controller.center = LatLng(lat, long);

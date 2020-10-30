@@ -1,37 +1,29 @@
 import 'package:flutter/material.dart';
-import 'navigatebar.dart';
-import 'FAbbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class HomePage extends StatefulWidget {
-
-
   const HomePage({Key key}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
 
+String JWT = 'jwt';
 
-
-String JWT ;
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp)async {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       final jwt = prefs.getString('jwt') ?? '';
-setState(() {
-  JWT = jwt;
-});
+      setState(() {
+        JWT = jwt;
+      });
 
-     // _nameRetriever();
+      // _nameRetriever();
     });
-   // _nameRetriever();
+    // _nameRetriever();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
