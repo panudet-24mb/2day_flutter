@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:intl/intl.dart';
+import 'pulse_animation.dart';
 
 class CheckinPage extends StatefulWidget {
   @override
@@ -19,6 +20,7 @@ class _MyHomePageState extends State<CheckinPage> {
         children: <Widget>[
           _backgroundAnimWidget(),
           _cardWidget(),
+          RipplesAnimation(),
         ],
       ),
     );
@@ -31,12 +33,15 @@ class _MyHomePageState extends State<CheckinPage> {
     print(__time);
     if (__time >= 6 && __time < 17) {
       return false;
-    } else if (__time >= 17 && __time < 5) {
+    }
+    if (__time >= 17 && __time < 5) {
       return true;
     }
   }
 
   _backgroundAnimWidget() {
+    _isDarkMode = false;
+
     _isDarkMode = _themeMode();
 
     return Center(
@@ -58,9 +63,9 @@ class _MyHomePageState extends State<CheckinPage> {
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white,
-                  fontSize: 50,
+                fontWeight: FontWeight.normal,
+                color: Colors.white,
+                fontSize: 50,
               ),
             ),
           ),
