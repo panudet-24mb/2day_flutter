@@ -9,7 +9,7 @@ import 'package:ntp/ntp.dart';
 import 'package:intl/intl.dart';
 import 'package:nice_button/nice_button.dart';
 
-class checkin_gps extends StatelessWidget {
+class Checkin_gps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

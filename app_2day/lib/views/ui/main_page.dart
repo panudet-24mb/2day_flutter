@@ -5,7 +5,7 @@ import 'notifications.dart';
 import 'menu.dart';
 import 'home.dart';
 import '../ui/checkin/mainpage.dart';
-
+import '../ui/checkin_gps/main.dart';
 class MainPage extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
@@ -18,7 +18,7 @@ final List<Widget> screens = [
   HistoryPage(),
   null,
   NotificationsPage(),
-  MenuPage(),
+  Checkin_gps(),
 ]; // to store nested tabs
 final PageStorageBucket bucket = PageStorageBucket();
 Widget currentScreen = HomePage(); // Our first view in viewport
@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
         //backgroundColor: Colors.red,
         onPressed: () {
           Navigator.of(context).pushReplacement(
-              new MaterialPageRoute(builder: (context) => new CheckinPage()));
+              new MaterialPageRoute(builder: (context) => new Checkin_gps()));
 
         },
       ),
